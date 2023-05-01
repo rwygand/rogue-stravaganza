@@ -1,0 +1,15 @@
+[package]
+name = "rogue-stravaganza"
+version = "0.1.0"
+edition = "2021"
+authors = ["Rob Wygand"]
+description = "An as-of-yet unnamed game built on Bevy in Rust."
+homepage = "https://github.com/rwygand/unnamed-game"
+repository = "https://github.com/rwygand/unnamed-game"
+license-file = "LICENSE"
+keywords = []
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bevy = "0.10.1"
+rand = "0.8.5"
