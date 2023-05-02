@@ -14,15 +14,15 @@ jobs:
           toolchain: stable
           target: wasm32-unknown-unknown
 
-      - uses: jetli/trunk-action@v0.1.0
-      - uses: jetli/wasm-bindgen-action@v0.1.0
+      - uses: jetli/trunk-action@v0.4.0
+      - uses: jetli/wasm-bindgen-action@v0.2.0
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - run: trunk build --release
 
       - uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
         with:
-          github_token: $
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist

@@ -7,7 +7,7 @@ jobs:
 
     steps:
       - run: sudo apt-get update; sudo apt-get install --no-install-recommends libasound2-dev libudev-dev
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: cargo test --all
 
   format:
@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - run: sudo apt-get update; sudo apt-get install --no-install-recommends libasound2-dev libudev-dev
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: cargo fmt --all -- --check
 
   clippy:
@@ -23,5 +23,5 @@ jobs:
 
     steps:
       - run: sudo apt-get update; sudo apt-get install --no-install-recommends libasound2-dev libudev-dev
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: cargo clippy --all -- -D warnings
