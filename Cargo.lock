@@ -2581,14 +2581,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "rogue-stravaganza"
-version = "0.1.0"
-dependencies = [
- "bevy",
- "rand",
-]
-
-[[package]]
 name = "ron"
 version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2948,6 +2940,14 @@ checksum = "97fee6b57c6a41524a810daee9286c02d7752c4253064d0b05472833a438f675"
 dependencies = [
  "cfg-if",
  "static_assertions",
+]
+
+[[package]]
+name = "unamed-game"
+version = "0.1.0"
+dependencies = [
+ "bevy",
+ "rand",
 ]
 
 [[package]]

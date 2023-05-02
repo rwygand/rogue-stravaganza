@@ -1,5 +1,5 @@
 [package]
-name = "rogue-stravaganza"
+name = "unamed-game"
 version = "0.1.0"
 edition = "2021"
 authors = ["Rob Wygand"]
@@ -13,3 +13,6 @@ keywords = []
 [dependencies]
 bevy = "0.10.1"
 rand = "0.8.5"
+
+[target.wasm32-unknown-unknown]
+runner = "wasm-server-runner"

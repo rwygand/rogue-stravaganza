@@ -23,6 +23,10 @@ jobs:
       - name: Install alsa and udev
         run: sudo apt-get update; sudo apt-get install --no-install-recommends libasound2-dev libudev-dev
       - run: rustup update ${{ matrix.toolchain }} && rustup default ${{ matrix.toolchain }}
+      - run: rustup target install wasm32-unknown-unknown
       - run: cargo build --verbose
       - run: cargo test --verbose
-      
+      - run: cargo build --release --target wasm32-unknown-unknown
+      - run: wasm-bindgen --out-dir ./out/ --target web ./target/
+
+
