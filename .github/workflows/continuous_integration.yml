@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - run: sudo apt-get update; sudo apt-get install --no-install-recommends libasound2-dev libudev-dev
       - uses: actions/checkout@v2
       - run: cargo test --all
 
@@ -13,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - run: sudo apt-get update; sudo apt-get install --no-install-recommends libasound2-dev libudev-dev
       - uses: actions/checkout@v2
       - run: cargo fmt --all -- --check
 
@@ -20,5 +22,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - run: sudo apt-get update; sudo apt-get install --no-install-recommends libasound2-dev libudev-dev
       - uses: actions/checkout@v2
       - run: cargo clippy --all -- -D warnings
