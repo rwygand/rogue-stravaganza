@@ -2,7 +2,6 @@ use bevy::prelude::*;
 use bevy_ecs_tilemap::prelude::*;
 
 fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
-
     let texture_handle: Handle<Image> = asset_server.load("tiles.png");
 
     commands.spawn(Camera2dBundle::default());
@@ -10,13 +9,14 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     let map_size = TilemapSize { x: 32, y: 32 };
     let tilemap_entity = commands.spawn_empty().id();
     let mut tile_storage = TileStorage::empty(map_size);
-    let tile_size = TilemapTileSize { x: 16.0, y: 16.0 };
 
-    fill_tilemap(TileTextureIndex(1),
-                 map_size,
-                 TilemapId(tilemap_entity),
-                 &mut commands,
-                 &mut tile_storage);
+    fill_tilemap(
+        TileTextureIndex(1),
+        map_size,
+        TilemapId(tilemap_entity),
+        &mut commands,
+        &mut tile_storage,
+    );
 
     let tile_size = TilemapTileSize { x: 16.0, y: 16.0 };
     let grid_size = tile_size.into();
