@@ -13,6 +13,4 @@ keywords = []
 [dependencies]
 bevy = "0.10.1"
 rand = "0.8.5"
-
-[target.wasm32-unknown-unknown]
-runner = "wasm-server-runner"
+bevy_ecs_tilemap = "0.10.0"
