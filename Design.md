@@ -3,20 +3,33 @@
 Unamed Game is a game about destroying the GDP of a fictional nation-state in 
 the throes of late-stage capitalism. It is a top-down, tile-based, 2D rogue-lite.
 The adventurer will be given a set number of rounds to annihilate the economy by 
-wandering the map and placing tiles, via cards. A round ends when the player is
-captured by the corpo-fascist State and imprisoned.
+wandering the map and placing tiles, via cards. 
+
+A round ends when the player is captured by the corpo-fascist State and 
+imprisoned. Similarly, the player can choose to end a round by returning to their
+base of operations.
+
+Between rounds there may be some meta-progression. This is TBD.
 
 ## Characters
 
-The player controls one character in the quest to eradicate GDP. The game is 
+The player controls one character on a quest to eradicate GDP. The game is 
 initially limited to a single class, though additional classes may be added 
 Classes will have customized card sets and unique abilities.
 
 The player may encounter helpful NPCs in their wanderings of the procedurally
-generated State.
+generated map.
+
+Examples of friendlies:
+* Hippy chick
+* Crypto-anarchist
 
 The player will also encounter the agents of oppressive order who will seek to
 capture and imprison them.
+
+Examples of enemies:
+* Neo-neo-nazis
+* Killer drones
 
 ## Story
 
@@ -31,17 +44,23 @@ The game takes place in a near-future world.
 
 ## Gameplay
 
-The goal of the game is to lower the State GDP to zero.
-
-The player is given a fixed number of "rounds" in which to navigate the map and 
+The player is given a fixed number of "rounds" in which to navigate and 
 and interact with the map, while evading or defeating State Actors. Being captured
-results in a new "round" beginning.
+results in a new "round" beginning after some prison time is served by the player.
+
+The core mechanic for interacting with the world are cards. Cards are a 
+randomization and gearing element, but they can also affect the map state. 
+The contents of the player deck is fixed at the start of the game, but mechanics
+within the game may alter those contents to make them more or less favorable.
 
 There are NPCs and events scattered around the map. The player can interact with
-these via their cards, and in some cases directly. For example, if a player 
-encounters a "Brand Launch" event, they could place a pipe bomb card. At the end
-of each round, each card played/encounter/npc interaction will have some net
-effect on the State GDP.
+these via their cards, or in some cases directly. Some NPCs will sell cards to
+the player, some will offer tasks for the player to complete. 
+
+The map will also feature random events which the player can interact with or 
+disrupt. For example, if a player encounters a "Brand Launch" event, they could 
+place a Pipe Bomb card which would cause the event to fail, wreaking economic 
+destruction. 
 
 ## Goals
 * Reduce the State GDP to zero
@@ -55,10 +74,9 @@ effect on the State GDP.
 * long and short term resource management?
 
 ## Game Mechanics
-TBD
+TBD.
 
-##
-TBD
+There are probably 5-ish politico-economic tracks/factions that should be tracked.
 
 ## Losing
 The game ends after a fixed number of rounds. If the State GDP is more than 0, 
@@ -66,4 +84,4 @@ the player has lost. A score board of the lowest scores will be maintained.
 
 ## Technical Description
 The game will be written in Rust, using Bevy as the game engine. It will support
-PC, Mac and Linux, with WebASsembly for browser-based play being a stretch goal.
+PC, Mac and Linux, with WebAssembly for browser-based play being a stretch goal.
