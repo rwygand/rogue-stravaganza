@@ -1,5 +1,6 @@
 use bevy::prelude::*;
 use bevy_ecs_tilemap::prelude::*;
+extern crate console_error_panic_hook;
 
 fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     let texture_handle: Handle<Image> = asset_server.load("tiles.png");
@@ -61,6 +62,10 @@ fn swap_texture_or_hide(
 }
 
 fn main() {
+    // When building for WASM, print panics to the browser console
+    #[cfg(target_arch = "wasm32")]
+    console_error_panic_hook::set_once();
+
     App::new()
         .add_plugins(DefaultPlugins.set(WindowPlugin {
             primary_window: Some(Window {
