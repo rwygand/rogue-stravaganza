@@ -10,10 +10,18 @@ license-file = "LICENSE"
 keywords = []
 
 [dependencies]
-bevy = { version = "0.10.1" }
+# for development, we're using dynamic linking
+bevy = { version = "0.10.0", features = ["dynamic_linking"] }
 rand = "0.8.5"
 bevy_ecs_tilemap = "0.10.0"
-console_error_panic_hook = "0.1"
+
+# Enable a small amount of optimization in debug mode
+[profile.dev]
+opt-level = 1
+
+# Enable high optimizations for dependencies (incl. Bevy), but not for our code:
+[profile.dev.package."*"]
+opt-level = 3
 
 [profile.release]
 opt-level = 'z'

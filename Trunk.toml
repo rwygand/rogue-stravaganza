@@ -1,4 +1,0 @@
-[build]
-target = "trunk/index.html"
-public_url = "/unamed-game/"
-dist = "dist"
