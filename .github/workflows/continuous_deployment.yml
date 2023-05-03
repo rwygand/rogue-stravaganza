@@ -1,4 +1,4 @@
-name: Continuous deployment
+name: Deploy WASM
 on:
   workflow_run:
     branches: [main]
