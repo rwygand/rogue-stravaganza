@@ -1,4 +1,5 @@
 use bevy::prelude::*;
+extern crate console_error_panic_hook;
 
 mod actions;
 mod assets;
@@ -14,6 +15,7 @@ mod states;
 mod vectors;
 
 fn main() {
+    // When building for WASM, print panics to the browser console
     #[cfg(target_arch = "wasm32")]
     console_error_panic_hook::set_once();
 
