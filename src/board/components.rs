@@ -7,7 +7,7 @@ pub struct Position {
     pub v: Vector2Int,
 }
 
-#[derive(PartialEq, Eq, Hash, Debug)]
+#[derive(PartialEq, Eq, Hash, Debug, Clone, Copy)]
 pub enum TileType {
     Floor,
     Wall,

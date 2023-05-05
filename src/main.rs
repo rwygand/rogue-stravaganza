@@ -24,6 +24,8 @@ fn main() {
     console_error_panic_hook::set_once();
 
     App::new()
+        // Set the global default color
+        .insert_resource(ClearColor(Color::rgb(0.0, 0.0, 0.0)))
         .add_plugins(
             DefaultPlugins
                 .set(WindowPlugin {
