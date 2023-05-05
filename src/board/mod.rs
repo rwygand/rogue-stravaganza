@@ -11,12 +11,30 @@ pub struct BoardPlugin;
 
 impl Plugin for BoardPlugin {
     fn build(&self, app: &mut App) {
-        app.init_resource::<CurrentBoard>()
-            .add_system(systems::spawn_map.in_schedule(OnEnter(MainState::Game)));
+        app.insert_resource(CurrentBoard {
+            width: 16,
+            height: 16,
+            ..default()
+        })
+        .add_system(systems::spawn_map.in_schedule(OnEnter(MainState::Game)));
     }
 }
 
-#[derive(Default, Resource)]
+#[derive(Resource)]
 pub struct CurrentBoard {
     pub tiles: HashMap<Vector2Int, Entity>,
+    pub width: i32,
+    pub height: i32,
+    pub depth: i32,
+}
+
+impl Default for CurrentBoard {
+    fn default() -> Self {
+        CurrentBoard {
+            tiles: HashMap::new(),
+            width: 16,
+            height: 16,
+            depth: 1,
+        }
+    }
 }

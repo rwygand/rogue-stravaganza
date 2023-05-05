@@ -1,3 +1,4 @@
+use crate::board::components::*;
 use bevy::prelude::*;
 
 use super::GraphicsAssets;
@@ -29,5 +30,13 @@ pub fn load_assets(
 }
 
 pub fn sprite_idx(x: usize, y: usize) -> usize {
-    (49 * y) + x
+    (ATLAS_COLS * y) + x
+}
+
+pub fn sprite_idx_for_tile(tile: &TileType) -> usize {
+    match tile {
+        TileType::Wall => sprite_idx(0, 13),
+        TileType::Tree => sprite_idx(0, 1),
+        _ => 0,
+    }
 }

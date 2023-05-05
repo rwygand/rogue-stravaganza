@@ -11,8 +11,10 @@ keywords = []
 
 [dependencies]
 bevy = { version = "0.10.1" }
-rand = "0.8.5"
+bevy_rand = "0.1"
 console_error_panic_hook = "0.1"
+rand = "0.8.5"
+rand_chacha = "0.3.1"
 
 # Enable a small amount of optimization in debug mode
 [profile.dev]
