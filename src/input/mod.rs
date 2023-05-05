@@ -18,11 +18,15 @@ impl Plugin for InputPlugin {
 
 pub struct PlayerInputReadyEvent;
 
-const DIR_KEY_MAPPING: [(KeyCode, Vector2Int); 4] = [
+const DIR_KEY_MAPPING: [(KeyCode, Vector2Int); 8] = [
     (KeyCode::W, Vector2Int::UP),
     (KeyCode::S, Vector2Int::DOWN),
     (KeyCode::A, Vector2Int::LEFT),
     (KeyCode::D, Vector2Int::RIGHT),
+    (KeyCode::Q, Vector2Int::UPLEFT),
+    (KeyCode::E, Vector2Int::UPRIGHT),
+    (KeyCode::Z, Vector2Int::DOWNLEFT),
+    (KeyCode::C, Vector2Int::DOWNRIGHT),
 ];
 
 fn player_position(

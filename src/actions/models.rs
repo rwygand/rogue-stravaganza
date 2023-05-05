@@ -1,7 +1,9 @@
+use crate::actions::PlayerMovedEvent;
 use bevy::prelude::*;
 
 use crate::board::{components::Position, CurrentBoard};
 use crate::pieces::components::{Health, Occupier};
+use crate::player::Player;
 use crate::vectors::Vector2Int;
 
 use super::Action;
@@ -58,8 +60,15 @@ impl Action for WalkAction {
             .iter(world)
             .any(|p| p.v == self.1)
         {
+            // Can't move into occupier
             return Err(());
         };
+
+        if world.get::<Player>(self.0).is_some() {
+            // the entith that moved is the pplayer
+            world.send_event(PlayerMovedEvent(self.1));
+        }
+
         let mut position = world.get_mut::<Position>(self.0).ok_or(())?;
         position.v = self.1;
         Ok(Vec::new())

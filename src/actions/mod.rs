@@ -2,11 +2,14 @@ use bevy::prelude::*;
 use std::collections::VecDeque;
 
 use crate::states::GameState;
+use crate::vectors::Vector2Int;
 
 pub mod models;
 mod systems;
 
 pub struct ActionsPlugin;
+
+pub struct PlayerMovedEvent(pub Vector2Int);
 
 impl Plugin for ActionsPlugin {
     fn build(&self, app: &mut App) {

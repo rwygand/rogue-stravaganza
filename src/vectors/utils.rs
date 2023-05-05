@@ -3,7 +3,7 @@ use std::{
     collections::{BinaryHeap, HashMap, HashSet, VecDeque},
 };
 
-use super::{Vector2Int, ORTHO_DIRECTIONS};
+use super::{Vector2Int, WALKABLE_DIRECTIONS};
 
 pub fn find_path(
     start: Vector2Int,
@@ -21,7 +21,7 @@ pub fn find_path(
             break;
         }
         visited.insert(v, cost);
-        for dir in ORTHO_DIRECTIONS {
+        for dir in WALKABLE_DIRECTIONS {
             let n = v + dir;
             let new_cost = cost + 1;
             if !tiles.contains(&n) {
