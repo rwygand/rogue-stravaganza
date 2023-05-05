@@ -1,3 +1,4 @@
+use crate::actions::PlayerMovedEvent;
 use bevy::prelude::*;
 use bevy_rand::prelude::*;
 use rand_chacha::ChaCha8Rng;
@@ -46,6 +47,8 @@ fn main() {
         .add_plugin(manager::ManagerPlugin)
         .add_plugin(pieces::PiecesPlugin)
         .add_plugin(player::PlayerPlugin)
+        .add_event::<PlayerMovedEvent>()
+        .add_system(camera::follow_player)
         .add_startup_system(camera::setup)
         .run()
 }

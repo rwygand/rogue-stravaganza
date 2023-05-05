@@ -14,6 +14,11 @@ impl Vector2Int {
     pub const DOWN: Vector2Int = Vector2Int { x: 0, y: -1 };
     pub const LEFT: Vector2Int = Vector2Int { x: -1, y: 0 };
     pub const RIGHT: Vector2Int = Vector2Int { x: 1, y: 0 };
+    pub const UPLEFT: Vector2Int = Vector2Int { x: -1, y: 1 };
+    pub const UPRIGHT: Vector2Int = Vector2Int { x: 1, y: 1 };
+    pub const DOWNLEFT: Vector2Int = Vector2Int { x: -1, y: -1 };
+    pub const DOWNRIGHT: Vector2Int = Vector2Int { x: 1, y: -1 };
+
     pub fn new(x: i32, y: i32) -> Vector2Int {
         Vector2Int { x, y }
     }
@@ -80,9 +85,13 @@ impl Mul<Vector2Int> for i32 {
     }
 }
 
-pub const ORTHO_DIRECTIONS: [Vector2Int; 4] = [
+pub const WALKABLE_DIRECTIONS: [Vector2Int; 8] = [
     Vector2Int::UP,
     Vector2Int::DOWN,
     Vector2Int::LEFT,
     Vector2Int::RIGHT,
+    Vector2Int::UPLEFT,
+    Vector2Int::UPRIGHT,
+    Vector2Int::DOWNLEFT,
+    Vector2Int::DOWNRIGHT,
 ];

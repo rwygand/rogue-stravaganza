@@ -6,7 +6,7 @@ use rand_chacha::ChaCha8Rng;
 use crate::board::{components::Position, CurrentBoard};
 use crate::pieces::components::{Actor, Melee, Occupier, Walk};
 use crate::player::Player;
-use crate::vectors::{find_path, ORTHO_DIRECTIONS};
+use crate::vectors::{find_path, WALKABLE_DIRECTIONS};
 
 use super::models::{MeleeHitAction, WalkAction};
 use super::{
@@ -90,7 +90,7 @@ pub fn plan_walk(
     let Ok((position, mut actor)) = query.get_mut(*entity) else { return };
     let Ok(player_position) = player_query.get_single() else { return };
     // get all possible move targets
-    let positions = ORTHO_DIRECTIONS
+    let positions = WALKABLE_DIRECTIONS
         .iter()
         .map(|d| *d + position.v)
         .collect::<Vec<_>>();
