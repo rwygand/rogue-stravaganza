@@ -1,5 +1,7 @@
 use bevy::prelude::*;
+use bevy_rand::prelude::*;
 use rand::prelude::*;
+use rand_chacha::ChaCha8Rng;
 
 use crate::board::{components::Position, CurrentBoard};
 use crate::pieces::components::{Actor, Melee, Occupier, Walk};
@@ -82,6 +84,7 @@ pub fn plan_walk(
     player_query: Query<&Position, With<Player>>,
     occupier_query: Query<&Position, With<Occupier>>,
     board: Res<CurrentBoard>,
+    mut rng: ResMut<GlobalEntropy<ChaCha8Rng>>,
 ) {
     let Some(entity) = queue.0.get(0) else { return };
     let Ok((position, mut actor)) = query.get_mut(*entity) else { return };
@@ -98,7 +101,6 @@ pub fn plan_walk(
         &board.tiles.keys().cloned().collect(),
         &occupier_query.iter().map(|p| p.v).collect(),
     );
-    let mut rng = thread_rng();
     let actions = positions
         .iter()
         .map(|v| {

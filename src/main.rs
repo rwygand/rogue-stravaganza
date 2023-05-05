@@ -1,4 +1,7 @@
 use bevy::prelude::*;
+use bevy_rand::prelude::*;
+use rand_chacha::ChaCha8Rng;
+
 extern crate console_error_panic_hook;
 
 mod actions;
@@ -31,6 +34,7 @@ fn main() {
                 })
                 .set(ImagePlugin::default_nearest()),
         )
+        .add_plugin(EntropyPlugin::<ChaCha8Rng>::default())
         .insert_resource(Msaa::Off)
         .add_state::<states::MainState>()
         .add_state::<states::GameState>()
